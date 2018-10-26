@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MyBeforeAspect {
     
-    @Before("execution(* org.smartinrub.aopspringdemo.service.*.*(..))")
+    @Before("org.smartinrub.aopspringdemo.aspect.JoinPoints.serviceLayer()")
     public void beforeSomething(JoinPoint joinPoint) {
         log.info("ASPECT: Running something else before service -> {}", joinPoint);
     }
