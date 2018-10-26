@@ -1,4 +1,4 @@
-package org.smartinrub.aopspringdemo;
+package org.smartinrub.aopspringdemo.controller;
 
 import lombok.AllArgsConstructor;
 import org.smartinrub.aopspringdemo.service.MyServiceOne;

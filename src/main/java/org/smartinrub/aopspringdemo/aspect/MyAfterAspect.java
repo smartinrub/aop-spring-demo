@@ -1,4 +1,4 @@
-package org.smartinrub.aopspringdemo;
+package org.smartinrub.aopspringdemo.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
