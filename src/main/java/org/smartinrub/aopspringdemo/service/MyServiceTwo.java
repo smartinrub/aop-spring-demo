@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @AllArgsConstructor
 @Service
-public class MyServiceTwo {
-    
+public class MyServiceTwo implements MyService {
+
     private final MyRepositoryTwo repositoryTwo;
-      
+
+    @Override
     public String getSomething() {
         String value = repositoryTwo.getSomething();
         log.info(value);
