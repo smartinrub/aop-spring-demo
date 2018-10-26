@@ -15,7 +15,6 @@ public class MyServiceTwo implements MyService {
     @Override
     public String getSomething() {
         String value = repositoryTwo.getSomething();
-        log.info(value);
         return value;
     }
 }

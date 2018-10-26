@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Aspect
 @Configuration
-public class MyAspect {
+public class MyBeforeAspect {
     
     @Before("execution(* org.smartinrub.aopspringdemo.service.*.*(..))")
     public void beforeSomething(JoinPoint joinPoint) {
