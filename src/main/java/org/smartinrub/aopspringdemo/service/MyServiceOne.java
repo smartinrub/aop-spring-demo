@@ -15,7 +15,8 @@ public class MyServiceOne implements MyService {
 
     @TrackTime
     @Override
-    public String getSomething(int id) {
+    public String getSomething(int id) throws InterruptedException {
+        Thread.sleep(2000);
         return repositoryOne.getSomething(id);
     }
 }

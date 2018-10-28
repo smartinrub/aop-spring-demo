@@ -13,6 +13,6 @@ public class MyBeforeAspect {
     
     @Before("org.smartinrub.aopspringdemo.aspect.JoinPoints.serviceLayer()")
     public void beforeSomething(JoinPoint joinPoint) {
-        log.info("ASPECT: Running something else before service -> {}", joinPoint.getSignature());
+        log.info("ASPECT - Before: {}", joinPoint.getSignature());
     }
 }

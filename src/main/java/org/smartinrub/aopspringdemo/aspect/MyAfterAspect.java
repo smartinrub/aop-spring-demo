@@ -14,13 +14,13 @@ public class MyAfterAspect {
 
     @After(value = "org.smartinrub.aopspringdemo.aspect.JoinPoints.repositoryLayer(id)")
     public void afterSomething(JoinPoint joinPoint, int id) {
-        log.info("ASPECT: Running something else after repository -> {}", joinPoint.getSignature());
+        log.info("ASPECT - After: {}", joinPoint.getSignature());
     }
 
     @AfterReturning(
             value = "org.smartinrub.aopspringdemo.aspect.JoinPoints.repositoryLayer(id)",
             returning = "result")
     public void afterReturning(JoinPoint joinPoint, Object result, int id) {
-        log.info("ASPECT: Repository {} with id {} returned {}", joinPoint, id, result);
+        log.info("ASPECT - After Returning: repository {} with id {} returned {}", joinPoint, id, result);
     }
 }

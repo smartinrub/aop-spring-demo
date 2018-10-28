@@ -16,6 +16,6 @@ public class MyAfterThrowingAspect {
             value = "org.smartinrub.aopspringdemo.aspect.JoinPoints.controllerLayer()",
             throwing = "ex")
     public void afterThrowing(JoinPoint joinPoint, IllegalArgumentException ex) {
-        log.info("ASPECT: Running something after exception \"{}\" on controller \"{}\"", ex, joinPoint.getSignature());
+        log.info("ASPECT - After Throwing: exception \"{}\" on controller \"{}\"", ex, joinPoint.getSignature());
     }
 }

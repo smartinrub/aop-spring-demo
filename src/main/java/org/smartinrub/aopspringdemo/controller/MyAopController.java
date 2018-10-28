@@ -18,7 +18,7 @@ public class MyAopController {
     private final MyServiceTwo serviceTwo;
 
     @GetMapping("/api/one/{id}")
-    public String getOne(@PathVariable("id") int id) {
+    public String getOne(@PathVariable("id") int id) throws InterruptedException {
 
         if (id == 0) {
             throw new IllegalArgumentException("id value can't be 0");
