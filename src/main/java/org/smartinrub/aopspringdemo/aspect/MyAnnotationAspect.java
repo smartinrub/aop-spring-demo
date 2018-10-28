@@ -4,21 +4,23 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 @Slf4j
 @Aspect
-@Configuration
+@Component
 public class MyAnnotationAspect {
-    
+
     @Around("@annotation(org.smartinrub.aopspringdemo.annotation.TrackTime)")
-    public void around(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         
-        joinPoint.proceed();
+        Object proceed = joinPoint.proceed();
         
-        long timeTaken = System.currentTimeMillis() - startTime;
-	log.info("ASPECT: Time Taken by {} is {}", joinPoint, timeTaken);
+        long totalTime = System.currentTimeMillis() - startTime;
+	    log.info("ASPECT: Time Taken by {} is {}", joinPoint.getSignature(), totalTime);
+
+	    return proceed;
     }
     
 }

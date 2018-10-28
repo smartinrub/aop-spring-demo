@@ -5,11 +5,11 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 @Slf4j
 @Aspect
-@Configuration
+@Component
 public class MyAfterAspect {
 
     @AfterReturning(
@@ -21,6 +21,6 @@ public class MyAfterAspect {
 
     @After("org.smartinrub.aopspringdemo.aspect.JoinPoints.repositoryLayer()")
     public void afterSomething(JoinPoint joinPoint) {
-        log.info("ASPECT: Running something else after repository -> {}", joinPoint);
+        log.info("ASPECT: Running something else after repository -> {}", joinPoint.getSignature());
     }
 }
