@@ -12,8 +12,10 @@ import org.springframework.stereotype.Component;
 public class MyAfterThrowingAspect {
 
 
-    @AfterThrowing("org.smartinrub.aopspringdemo.aspect.JoinPoints.controllerLayer()")
-    public void afterThrowing(JoinPoint joinPoint) {
-        log.info("ASPECT: Running something after exception on controller -> {}", joinPoint.getSignature());
+    @AfterThrowing(
+            value = "org.smartinrub.aopspringdemo.aspect.JoinPoints.controllerLayer()",
+            throwing = "ex")
+    public void afterThrowing(JoinPoint joinPoint, IllegalArgumentException ex) {
+        log.info("ASPECT: Running something after exception \"{}\" on controller \"{}\"", ex, joinPoint.getSignature());
     }
 }

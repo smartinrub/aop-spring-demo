@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 public class MyRepositoryOne implements MyRepository {
 
     @Override
-    public String getSomething() {
-        return "Repo one";
+    public String getSomething(int id) {
+        return "Repo one with id: " + id;
     }
 }

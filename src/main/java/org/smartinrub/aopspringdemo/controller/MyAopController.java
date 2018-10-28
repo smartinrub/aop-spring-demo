@@ -6,10 +6,7 @@ import org.smartinrub.aopspringdemo.service.MyServiceOne;
 import org.smartinrub.aopspringdemo.service.MyServiceTwo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;import sun.jvm.hotspot.compiler.ImmutableOopMap;
-
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
@@ -26,11 +23,11 @@ public class MyAopController {
         if (id == 0) {
             throw new IllegalArgumentException("id value can't be 0");
         }
-        return serviceOne.getSomething();
+        return serviceOne.getSomething(id);
     }
     
-    @GetMapping("/api/two")
-    public String getTwo() {
-        return serviceTwo.getSomething();
+    @GetMapping("/api/two/{id}")
+    public String getTwo(@PathVariable("id") int id) {
+        return serviceTwo.getSomething(id);
     }
 }

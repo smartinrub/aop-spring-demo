@@ -12,15 +12,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyAfterAspect {
 
-    @AfterReturning(
-            value = "org.smartinrub.aopspringdemo.aspect.JoinPoints.repositoryLayer()",
-            returning = "result")
-    public void afterReturning(JoinPoint joinPoint, Object result) {
-        log.info("ASPECT: Repository {} returned {}", joinPoint, result);
+    @After(value = "org.smartinrub.aopspringdemo.aspect.JoinPoints.repositoryLayer(id)")
+    public void afterSomething(JoinPoint joinPoint, int id) {
+        log.info("ASPECT: Running something else after repository -> {}", joinPoint.getSignature());
     }
 
-    @After("org.smartinrub.aopspringdemo.aspect.JoinPoints.repositoryLayer()")
-    public void afterSomething(JoinPoint joinPoint) {
-        log.info("ASPECT: Running something else after repository -> {}", joinPoint.getSignature());
+    @AfterReturning(
+            value = "org.smartinrub.aopspringdemo.aspect.JoinPoints.repositoryLayer(id)",
+            returning = "result")
+    public void afterReturning(JoinPoint joinPoint, Object result, int id) {
+        log.info("ASPECT: Repository {} with id {} returned {}", joinPoint, id, result);
     }
 }

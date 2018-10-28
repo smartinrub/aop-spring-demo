@@ -15,7 +15,7 @@ public class MyServiceOne implements MyService {
 
     @TrackTime
     @Override
-    public String getSomething() {
-        return repositoryOne.getSomething();
+    public String getSomething(int id) {
+        return repositoryOne.getSomething(id);
     }
 }

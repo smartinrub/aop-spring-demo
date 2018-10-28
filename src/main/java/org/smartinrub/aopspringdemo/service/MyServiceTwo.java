@@ -13,7 +13,7 @@ public class MyServiceTwo implements MyService {
     private final MyRepositoryTwo repositoryTwo;
 
     @Override
-    public String getSomething() {
-        return repositoryTwo.getSomething();
+    public String getSomething(int id) {
+        return repositoryTwo.getSomething(id);
     }
 }
